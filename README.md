@@ -4,7 +4,7 @@
 
 Changes made to the original implementation: 
 
-1. Removed wildcards from `Set<Set<Node<?>>> tarjan(List<Node<?>> graph)` method and parametrized the method over a generic type `T`. The method definition is now `public static <T> List<List<Node<T>>> tarjan(List<Node<T>> graph)`. Rarely should type safety be avoided, and no reason for its omition has been found. 
+1. Removed wildcards from `Set<Set<Node<?>>> tarjan(List<Node<?>> graph)` method and parametrized the method over a generic type `T`. The method definition is now `public static <T> Set<Set<Node<T>>> tarjan(List<Node<T>> graph)`. Rarely should type safety be avoided, and no reason for its omition has been found. 
 
 2. Made the `tarjan` method an instance method. This is because two versions of Tarjan's algorithm were implemented: iterative and recurive. Because both implementation follow a common API, it was easier and more natural to test if these two implementation implemented a `Task` interface. 
 

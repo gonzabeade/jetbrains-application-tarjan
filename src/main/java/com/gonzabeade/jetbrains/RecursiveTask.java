@@ -48,9 +48,12 @@ public class RecursiveTask implements Task {
                 }
             }
 
+            // I have already finished visiting all my neighbours.
+            // It is time to check if I am the root of one SCC
             if (lowLinkValues.get(node) == dfsValues.get(node)) {
-                Set<Node<T>> segment = new HashSet<>();
 
+                // Pop elements from the stack to form a new set of elements in the partition.
+                Set<Node<T>> segment = new HashSet<>();
                 Node<T> top;
                 do {
                     top = nodeStack.pop();
@@ -63,7 +66,6 @@ public class RecursiveTask implements Task {
 
         }
 
-
         public Set<Set<Node<T>>> close() {
             return result;
         }
@@ -74,6 +76,9 @@ public class RecursiveTask implements Task {
 
         TarjanHelper<T> tarjanHelper = new TarjanHelper<>();
 
+        // It may happen that not every node is reachable from the first node of the graph
+        // Try every node, and the worst thing that may happen is that it has already been
+        // traversed in some other call
         for (Node<T> initNode : graph)
             if (!tarjanHelper.isNodeVisited(initNode))
                 tarjanHelper.tarjanTraverse(initNode);

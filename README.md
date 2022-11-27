@@ -15,3 +15,5 @@ Changes made to the original implementation:
 5. Two versions of the Tarjan algorithm have been implemented. This is because the nature of the algorithm is recursive, yet the JVM is not sufficiently optimized for recursive functions in practice. If the algorithm was to be used in a productie environment, perhaps the necessity of an iterative solution should be studied. Obviously, the implementation for Tarjan's algorithm is neater when implemented recursively. The iterative version of the algorithm is not fully functional, and its problem is identified. The failing test in the source code specifies its source of failure. 
 
 6. The `Stack` class may be replaced by `ArrayDeque` class. `Stack` is a legacy class that is thread-safe,hence it includes a lot of overhead that may be ommited. For the purposes of this project, it has been decided that using the `Stack` class is enough. 
+
+7. The iterative solution to the algorithm uses a simulated stack of frames in its implementation. It can be studied and discussed to what extent this solution is more efficient than using the mere recursive strategy. 
